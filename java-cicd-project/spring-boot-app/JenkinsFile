@@ -5,7 +5,7 @@ pipeline {
     stage('Checkout Code') {
         steps {
             echo 'scm git'
-            git branch: 'main', url: 'https://github.com/rajudonkeshwar/devops-practice.git'
+            git branch: 'main', url: 'https://github.com/adarsh0331/Project_1.git'
         }
     }
     
@@ -46,8 +46,6 @@ stage('Dependency Check') {
 }
 
 
-
-
     stage('Publish Report') {
         steps {
             publishHTML([
@@ -70,9 +68,6 @@ stage('Dependency Check') {
       }
     }
 
-
-
-
     stage('Build docker image'){
     steps{
         script{
@@ -82,11 +77,11 @@ stage('Dependency Check') {
     }
 }
 		
-//     stage('docker image scan'){
-//     steps{
-//         sh "trivy image adarshbarkunta/java:${BUILD_NUMBER}"
-//     }
-// }		
+     stage('docker image scan'){
+     steps{
+         sh "trivy image adarshbarkunta/java:${BUILD_NUMBER}"
+     }
+ }		
 
 
 stage('Push image to Hub'){
