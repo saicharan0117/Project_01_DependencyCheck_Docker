@@ -189,13 +189,13 @@ This is a MVC architecture based application where controller returns a page wit
 
 ## Then use docker to build the image from the artifact
 
-            docker build -t rajudonkeshwar/java:${BUILD_NUMBER}
+            docker build -t adarshbarkunta/java:${BUILD_NUMBER}
 
                 stage('Build docker image'){
                 steps{
                     script{
                         echo 'docker image build'
-                        sh 'cd java-cicd-project/spring-boot-app && docker build -t rajudonkeshwar/java:${BUILD_NUMBER} .'
+                        sh 'cd java-cicd-project/spring-boot-app && docker build -t adarshbarkunta/java:${BUILD_NUMBER} .'
                     }
                 }
             }
@@ -212,7 +212,7 @@ This is a MVC architecture based application where controller returns a page wit
 
             stage('docker image scan'){
                 steps{
-                    sh "trivy image rajudonkeshwar/java:${BUILD_NUMBER}"
+                    sh "trivy image adarshbarkunta/java:${BUILD_NUMBER}"
                 }
             }
 
@@ -232,10 +232,10 @@ This is a MVC architecture based application where controller returns a page wit
                 steps{
                     script{
                         withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
-                        sh 'docker login -u rajudonkeshwar -p ${dockerhub}'
+                        sh 'docker login -u adarshbarkunta -p ${dockerhub}'
 
                         }
-                        sh 'docker push rajudonkeshwar/java:${BUILD_NUMBER}'
+                        sh 'docker push adarshbarkunta/java:${BUILD_NUMBER}'
                         }
                     }
                 }
@@ -249,7 +249,7 @@ This is a MVC architecture based application where controller returns a page wit
             steps{
                 script{
             
-                    sh 'docker run -itd --name java-app -p 8000:8080 rajudonkeshwar/java:${BUILD_NUMBER}'
+                    sh 'docker run -itd --name java-app -p 8000:8080 adarshbarkunta/java:${BUILD_NUMBER}'
                     }
                 }
             }   
