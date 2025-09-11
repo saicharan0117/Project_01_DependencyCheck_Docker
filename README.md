@@ -33,13 +33,17 @@ This is a MVC architecture based application where controller returns a page wit
 
 ## Plugins to install
    sonar sonar
+
    docker
+
    stage view
+
    OWASP Dependency-Check
 
 
 ## credentails that can be used 
    dockerHub
+
    soanrqube
 
 
