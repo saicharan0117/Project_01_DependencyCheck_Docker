@@ -5,7 +5,7 @@ pipeline {
     stage('Checkout Code') {
         steps {
             echo 'scm git'
-            git branch: 'main', url: 'https://github.com/adarsh0331/Project_1.git'
+            git branch: 'main', url: 'https://github.com/saicharan0117/Project_01_DependencyCheck_Docker.git'
         }
     }
     
@@ -24,8 +24,8 @@ pipeline {
         echo 'scanning project'
         sh 'ls -ltr'
         sh '''cd java-cicd-project/spring-boot-app && mvn sonar:sonar \\
-              -Dsonar.host.url=http://localhost:9000 \\
-              -Dsonar.login=squ_d519f9f045bdd07c9fb4866a7614f18155c09308'''
+              -Dsonar.host.url=http://lhttp://35.180.138.186:9000 \\
+              -Dsonar.login=squ_27c11d6097463b9e3a3af079b322a1275da222a1'''
     }
 }
 
