@@ -24,7 +24,7 @@ pipeline {
         echo 'scanning project'
         sh 'ls -ltr'
         sh '''cd java-cicd-project/spring-boot-app && mvn sonar:sonar \\
-              -Dsonar.host.url=http://localhost:9000 \\
+              -Dsonar.host.url=http://35.180.138.186:9000 \\
               -Dsonar.login=squ_d519f9f045bdd07c9fb4866a7614f18155c09308'''
     }
 }
