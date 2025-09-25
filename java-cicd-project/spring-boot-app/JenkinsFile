@@ -88,10 +88,10 @@ stage('Push image to Hub'){
     steps{
         script{
             withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
-            sh 'docker login -u adarshbarkunta -p ${dockerhub}'
+            sh 'docker login -u saicharan117 -p ${dockerhub}'
 
       }
-            sh 'docker push adarshbarkunta/java:${BUILD_NUMBER}'
+            sh 'docker push saicharan117/java:${BUILD_NUMBER}'
         }
     }
 }
@@ -101,7 +101,7 @@ stage('Deploying image to docker container'){
     steps{
         script{
        
-            sh 'docker run -itd --name java-app -p 8000:8080 adarshbarkunta/java:${BUILD_NUMBER}'
+            sh 'docker run -itd --name java-app -p 8000:8080 saicharan117/java:${BUILD_NUMBER}'
         }
     }
 }
